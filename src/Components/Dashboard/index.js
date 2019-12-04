@@ -33,7 +33,6 @@ export class Dashboard extends React.Component {
           </S.Logout>
         </S.MenuBar>
         <S.Shipments>
-          <h1>Dashboard</h1>
           {shipments.map((item, index) => {
             return (
               <Card

@@ -125,13 +125,37 @@ const shipments = [
       longitude: "-75.6868",
       zip: "T0E 0M0",
       city: "Cologne",
-      address: "2259 Park Ct",
+      address: "Zugweg 29-31, 50677",
       distance_unit: "mile",
-      duration_estimate: 600
+      duration_estimate: 60
     },
     order_status: {
-      waiting: false,
+      waiting: true,
       assigned: false,
+      picked_up: false,
+      delivered: false
+    },
+    pickup_estimate: 4
+  },
+  {
+    id: 25546,
+    order_id: 42369,
+    origin: "Burger",
+    assigned: 44444,
+    destination: {
+      first_name: "Bruno",
+      last_name: "Matos",
+      latitude: "45.41634",
+      longitude: "-75.6868",
+      zip: "G4G 73M2",
+      city: "Cologne",
+      address: "Bonner Wall 25, 50677",
+      distance_unit: "mile",
+      duration_estimate: 35
+    },
+    order_status: {
+      waiting: true,
+      assigned: true,
       picked_up: false,
       delivered: false
     },
