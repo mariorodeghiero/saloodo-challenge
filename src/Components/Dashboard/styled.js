@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import media from "styled-media-query";
 
-export const MenuBarWrapper = styled.aside`
-  background: #606c88;
+export const DashboardWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 280px auto;
+  grid-template-areas: "menubar shipments";
+  /* background: #606c88;
   height: 100vh;
   padding: 1.75rem 0 0 1rem;
   display: flex;
@@ -12,15 +15,44 @@ export const MenuBarWrapper = styled.aside`
   left: 0;
   width: 16rem;
   transition: background 0.5s;
+*/
+  ${media.lessThan("large")`
+    grid-template-columns: 100%;
+    grid-template-areas: "shipments"
+                          "menubar";
+  `};
+`;
+
+export const MenuBar = styled.div`
+  background: #606c88;
+  height: 100vh;
+  padding: 1.75rem 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-area: menubar;
 
   ${media.lessThan("large")`
-    bottom: 0;
-    display: flex;
-    flex-direction: row;
     height: auto;
-    padding: 1rem;
     position: fixed;
-    width: 100%;
+    bottom: 0;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 1rem 0 1rem 1rem;
+  `}
+`;
+
+export const Shipments = styled.div`
+  grid-area: shipments;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  ${media.lessThan("large")`
+    height: 90vh;
   `}
 `;
 

@@ -15,7 +15,8 @@ const manager = {
   last_name: "Powell",
   name: "Eugene Powell",
   email: "eugenepowell@gmail",
-  image: "https://randomuser.me/api/portraits/men/13.jpg"
+  image: "https://randomuser.me/api/portraits/men/13.jpg",
+  typeOfAccess: "manager"
 };
 
 const bikers = [
