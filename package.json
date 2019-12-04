@@ -30,6 +30,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.4.1",
+    "styled-icons": "^9.0.1",
     "styled-media-query": "^2.1.2",
     "styled-reset": "^4.0.8"
   },

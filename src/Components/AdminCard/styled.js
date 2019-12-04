@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import media from "styled-media-query";
+import { Edit } from "styled-icons/material/Edit";
+import { Business } from "styled-icons/material/Business";
 
 export const Wrapper = styled.div`
   display: grid;
@@ -12,8 +14,9 @@ export const Wrapper = styled.div`
   width: 90%;
   background: white;
   box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
-  ${media.lessThan("large")`
-
+  ${media.lessThan("medium")`
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
   `};
 `;
 
@@ -49,4 +52,27 @@ export const Info = styled.p`
   color: #292e33;
   padding: 0.25rem;
   text-transform: capitalize;
+`;
+
+export const EditIcon = styled(Edit)`
+  height: 24px;
+  width: 24px;
+  margin-left: 0.5rem;
+  display: ${props => (props.hide ? "none" : "inline")};
+  cursor: pointer;
+`;
+
+export const BusinessIcon = styled(Business)`
+  height: 24px;
+  width: 24px;
+  margin-left: 0.5rem;
+`;
+
+export const BtnSubmit = styled.input`
+  padding: 0.35rem 1rem 0.35rem 1rem;
+  background-color: #41b809;
+  color: #ffffff;
+  border-radius: 3px;
+  border: none;
+  outline: 0;
 `;

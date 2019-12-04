@@ -1,20 +1,17 @@
 const express = require("express");
+const LoginController = require("./controllers/LoginController");
+const AssignController = require("./controllers/AssignController");
+const TimeController = require("./controllers/TimeController");
 
 const routes = express.Router();
 
-const users = [
-  {
-    name: "jhon",
-    password: "admin"
-  }
-];
-
 const manager = {
   id: 0,
+  admin_id: 213,
   first_name: "Eugene",
   last_name: "Powell",
   name: "Eugene Powell",
-  email: "eugenepowell@gmail",
+  email: "admin@gmail",
   image: "https://randomuser.me/api/portraits/men/13.jpg",
   typeOfAccess: "manager"
 };
@@ -26,7 +23,7 @@ const bikers = [
     first_name: "Arthur",
     last_name: "Stone",
     name: "Arthur Stone",
-    email: "arthurstone@gmail.com",
+    email: "biker@gmail",
     image: "https://randomuser.me/api/portraits/men/12.jpg"
   },
   {
@@ -117,7 +114,7 @@ const shipments = [
     id: 255858046,
     order_id: 450789469,
     origin: "space food",
-    assigned: 32423,
+    assigned: "Arthur Stone",
     destination: {
       first_name: "Christopher",
       last_name: "Gorski",
@@ -141,7 +138,7 @@ const shipments = [
     id: 25546,
     order_id: 42369,
     origin: "Burger",
-    assigned: 44444,
+    assigned: null,
     destination: {
       first_name: "Bruno",
       last_name: "Matos",
@@ -166,6 +163,8 @@ const shipments = [
 routes.get("/shipments", (req, res) => res.json(shipments));
 routes.get("/bikers", (req, res) => res.json(bikers));
 routes.get("/manager", (req, res) => res.json(manager));
-routes.post("/users/login", (req, res) => res.json(users));
+routes.post("/login", LoginController.store);
+routes.post("/assign", AssignController.store);
+routes.post("/time", TimeController.store);
 
 module.exports = routes;

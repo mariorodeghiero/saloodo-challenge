@@ -17,7 +17,6 @@ export default class App extends Component {
       <Provider store={store}>
         <>
           <GlobalStyle />
-          {/* <Login /> */}
           <Dashboard />
         </>
       </Provider>

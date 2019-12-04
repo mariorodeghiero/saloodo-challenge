@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import media from "styled-media-query";
+import { LogOut } from "styled-icons/boxicons-regular/LogOut";
 
 export const DashboardWrapper = styled.div`
   display: grid;
@@ -39,7 +40,7 @@ export const MenuBar = styled.div`
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    padding: 1rem 0 1rem 1rem;
+    padding: .5rem 0 0.5rem 1rem;
   `}
 `;
 
@@ -50,9 +51,9 @@ export const Shipments = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     height: 90vh;
+    margin-bottom: 200px;
   `}
 `;
 
@@ -90,6 +91,7 @@ export const Type = styled.span`
   font-weight: 300;
   font-family: Roboto;
   color: #c3c3c3;
+  text-transform: capitalize;
   ${media.lessThan("large")`
     display: none;
   `}
@@ -124,6 +126,7 @@ export const Item = styled.li`
 
   ${media.lessThan("large")`
     display: inline;
+    font-size: 0.875rem;
   `}
 `;
 
@@ -133,5 +136,26 @@ export const Logout = styled.div`
   ${media.lessThan("large")`
     margin-bottom: 0;
     margin-top: 0.75rem;
+  `}
+
+  span {
+    font-family: Roboto;
+    color: #ffffff;
+    font-size: 0.875rem;
+    margin-left: 0.35rem;
+
+    ${media.lessThan("large")`
+    font-size: 0.5rem;
+  `}
+  }
+`;
+
+export const BtnLogout = styled(LogOut)`
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  ${media.lessThan("large")`
+    width: 24px;
+    height: 24px;
   `}
 `;

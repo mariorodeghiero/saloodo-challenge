@@ -6,7 +6,7 @@ const Login = props => {
   const [password, handleChangePassword] = React.useState("");
 
   const handleSubmit = event => {
-    console.log(`${email}  |  ${password}`);
+    props.authenticateUser(email, password);
     event.preventDefault();
   };
 
