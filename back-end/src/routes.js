@@ -128,11 +128,11 @@ const shipments = [
     },
     order_status: {
       waiting: true,
-      assigned: false,
+      assigned: true,
       picked_up: false,
       delivered: false
     },
-    pickup_estimate: 4
+    pickup_estimate: null
   },
   {
     id: 25546,
@@ -152,11 +152,11 @@ const shipments = [
     },
     order_status: {
       waiting: true,
-      assigned: true,
+      assigned: false,
       picked_up: false,
       delivered: false
     },
-    pickup_estimate: 4
+    pickup_estimate: "30 min"
   }
 ];
 

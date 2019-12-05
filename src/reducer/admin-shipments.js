@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   if (action.type === "LOAD_ADMIN_SHIPMENTS_REQUEST") {
     return {
-      data: [],
+      ...state,
       loading: true,
       success: false,
       error: false
@@ -24,10 +24,10 @@ export default (state = INITIAL_STATE, action) => {
   }
   if (action.type === "LOAD_ADMIN_SHIPMENTS_FAILURE") {
     return {
+      ...state,
       loading: false,
       success: false,
-      error: true,
-      data: []
+      error: true
     };
   }
   if (action.type === "ASSIGNED_BIKERS_REQUEST") {
@@ -43,6 +43,10 @@ export default (state = INITIAL_STATE, action) => {
     let newData = state.data;
     const objIndex = newData.findIndex(obj => obj.order_id == order_id);
     newData[objIndex].assigned = assigned;
+    assigned === "unassigned"
+      ? (newData[objIndex].order_status.assigned = false)
+      : (newData[objIndex].order_status.assigned = true);
+
     return {
       ...state,
       loading: false,
@@ -52,6 +56,36 @@ export default (state = INITIAL_STATE, action) => {
     };
   }
   if (action.type === "ASSIGNED_BIKERS_FAILURE") {
+    return {
+      ...state,
+      loading: false,
+      success: false,
+      error: true
+    };
+  }
+  if (action.type === "EDIT_TIME_REQUEST") {
+    return {
+      ...state,
+      loading: true,
+      success: false,
+      error: false
+    };
+  }
+  if (action.type === "EDIT_TIME_SUCCESS") {
+    const { order_id, duration_estimate } = action.payload;
+    let newData = state.data;
+    const objIndex = newData.findIndex(obj => obj.order_id == order_id);
+    newData[objIndex].pickup_estimate = duration_estimate;
+    newData[objIndex].order_status.picked_up = true;
+    return {
+      ...state,
+      loading: false,
+      success: true,
+      error: false,
+      data: newData
+    };
+  }
+  if (action.type === "EDIT_TIME_FAILURE") {
     return {
       ...state,
       loading: false,

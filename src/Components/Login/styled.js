@@ -3,7 +3,9 @@ import media from "styled-media-query";
 
 export const Wrapper = styled.div`
   width: 30%;
+  min-width: 280px;
   height: 48%;
+  min-height: 260px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -16,8 +18,7 @@ export const Wrapper = styled.div`
   align-content: center;
 
   ${media.lessThan("large")`
-    width: 80%;
-    height: 48%;
+    height: 40%;
   `}
 `;
 
@@ -34,6 +35,7 @@ export const Label = styled.label`
   display: block;
   margin: 1.5rem 0 0.15rem 0;
   font-size: 0.75rem;
+  font-family: Roboto;
 `;
 
 export const Input = styled.input`

@@ -4,7 +4,7 @@ import * as S from "./styled";
 const AdminCard = props => {
   const [assignedBiker, setAssignedBiker] = useState("unassigned");
   const [editAssigned, setEditAssigned] = useState(false);
-  const { waiting, assigned, pike_up, delivered } = props.orderStatus;
+  const { waiting, assigned, picked_up, delivered } = props.orderStatus;
   const { city, address, duration_estimate } = props.destination;
   const bikers = props.bikers;
 
@@ -22,15 +22,15 @@ const AdminCard = props => {
       </div>
       <div>
         <ul>
-          <S.Waiting status={waiting}>Waiting</S.Waiting>
-          <S.Waiting status={assigned}>Assigned</S.Waiting>
-          <S.Waiting status={pike_up}>Pike Up</S.Waiting>
-          <S.Waiting status={delivered}>Delivered</S.Waiting>
+          <S.Status status={waiting}>Waiting</S.Status>
+          <S.Status status={assigned}>Assigned</S.Status>
+          <S.Status status={picked_up}>Pike Up</S.Status>
+          <S.Status status={delivered}>Delivered</S.Status>
         </ul>
       </div>
       <div>
-        <S.Label>Estimated time:</S.Label>
-        <S.Info>{duration_estimate} min</S.Info>
+        {/* <S.Label>Estimated time:</S.Label>
+        <S.Info>{duration_estimate} min</S.Info> */}
         <S.Label>Address:</S.Label>
         <S.Info>
           {address}, {city}
@@ -40,16 +40,16 @@ const AdminCard = props => {
         <form onSubmit={event => handleSubmit(event)}>
           <S.Label>
             Assigned:
-            <S.Info>
+            <S.Assigned>
               {props.assigned ? props.assigned : "Unassigned"}
               <S.EditIcon onClick={() => setEditAssigned(!editAssigned)} />
-            </S.Info>
+            </S.Assigned>
             {editAssigned && (
               <select
                 value={assignedBiker}
                 onChange={event => setAssignedBiker(event.target.value)}
               >
-                <option value={null}>Unassigned</option>
+                <option value="unassigned">Unassigned</option>
                 {bikers.map((item, index) => {
                   return (
                     <option key={`biker-select-${index}`} value={item.name}>

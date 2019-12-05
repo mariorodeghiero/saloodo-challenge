@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: antialiased;
     font-smoothing: antialiased;
-    background:  #f5f5f5;
+    background:  #FAFAFA;
   }
 
   h1, h2, h3, h4, h5, h6 {

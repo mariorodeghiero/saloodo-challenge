@@ -7,20 +7,21 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 1fr;
   align-items: center;
-  margin-top: 10px;
   padding: 1.5rem;
   margin-top: 0.5rem;
   border-radius: 3px;
   width: 90%;
   background: white;
-  box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+
   ${media.lessThan("medium")`
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    border-radius: 4px;
   `};
 `;
 
-export const Waiting = styled.li`
+export const Status = styled.li`
   font-family: Roboto;
   font-weight: ${props => (props.status ? "400" : "300")};
   font-size: 0.875rem;
@@ -34,6 +35,10 @@ export const Label = styled.h3`
   font-size: 0.875rem;
   color: #95a1ac;
   padding: 0.25rem;
+  ${media.lessThan("medium")`
+    font-size: 0.75rem;
+    line-height: 1.6em;
+  `};
 `;
 
 export const Origin = styled.h3`
@@ -52,6 +57,10 @@ export const Info = styled.p`
   color: #292e33;
   padding: 0.25rem;
   text-transform: capitalize;
+
+  ${media.lessThan("medium")`
+    font-size: 0.875rem;
+  `};
 `;
 
 export const EditIcon = styled(Edit)`

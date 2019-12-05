@@ -41,6 +41,8 @@ export const MenuBar = styled.div`
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     padding: .5rem 0 0.5rem 1rem;
+    background: #ffffff;
+    border-top: 1px solid #f5f5f5;
   `}
 `;
 
@@ -79,6 +81,7 @@ export const Name = styled.h2`
 export const Access = styled.p`
   font-size: 0.875rem;
   font-weight: 300;
+  line-height: 0;
   font-family: Roboto;
   color: #292e33;
   ${media.lessThan("large")`
@@ -122,7 +125,7 @@ export const Item = styled.li`
   font-weight: 300;
   font-size: 1rem;
   padding: 1rem;
-  cursor: pointer;
+  cursor: default;
 
   ${media.lessThan("large")`
     display: inline;
@@ -136,6 +139,8 @@ export const Logout = styled.div`
   ${media.lessThan("large")`
     margin-bottom: 0;
     margin-top: 0.75rem;
+    display: grid;
+    justify-items: center;
   `}
 
   span {
@@ -145,8 +150,11 @@ export const Logout = styled.div`
     margin-left: 0.35rem;
 
     ${media.lessThan("large")`
-    font-size: 0.5rem;
-  `}
+      font-size: 0.5rem;
+      color: #B8C3CC;
+      display: block;
+      line-height: 1.2em;
+    `}
   }
 `;
 

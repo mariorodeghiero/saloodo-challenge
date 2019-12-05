@@ -182,13 +182,13 @@ export const assignedBiker = (orderId, biker) => {
  */
 export const editTimerRequest = () => {
   return {
-    type: "ASSIGNED_BIKERS_REQUEST"
+    type: "EDIT_TIME_REQUEST"
   };
 };
 
 export const editTimerSuccess = (data, body) => {
   return {
-    type: "ASSIGNED_BIKERS_SUCCESS",
+    type: "EDIT_TIME_SUCCESS",
     payload: body,
     data
   };
@@ -196,7 +196,7 @@ export const editTimerSuccess = (data, body) => {
 
 export const editTimerFailure = data => {
   return {
-    type: "ASSIGNED_BIKERS_FAILURE",
+    type: "EDIT_TIME_FAILURE",
     data
   };
 };

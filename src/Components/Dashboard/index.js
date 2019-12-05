@@ -11,7 +11,8 @@ import {
   loadBikers,
   authenticateUser,
   authenticateUserRequest,
-  assignedBiker
+  assignedBiker,
+  editTimer
 } from "../../actions/actions";
 
 import * as S from "./styled";
@@ -27,6 +28,10 @@ export class Dashboard extends React.Component {
 
   handleAuthenticateUser(email, password) {
     this.props.authenticateUser(email, password);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return nextProps !== this.props;
   }
 
   render() {
@@ -52,7 +57,9 @@ export class Dashboard extends React.Component {
               </S.Profile>
               <S.Menu>
                 <S.MenuTitle>MENU</S.MenuTitle>
-                <S.Item>Shipments</S.Item>
+                <S.Item>
+                  {typeOfAccess === "manager" ? "Shipments" : "Orders"}
+                </S.Item>
               </S.Menu>
               <S.Logout>
                 <S.BtnLogout onClick={() => this.props.initializeUser()} />
@@ -78,20 +85,23 @@ export class Dashboard extends React.Component {
                     />
                   );
                 }
-                return (
-                  <BikerCard
-                    key={`admin-shipment-${index}`}
-                    origin={item.origin}
-                    destination={item.destination}
-                    assigned={item.assigned}
-                    orderStatus={item.order_status}
-                    orderId={item.order_id}
-                    bikers={bikers}
-                    assignedBiker={(orderId, biker) =>
-                      this.props.assignedBiker(orderId, biker)
-                    }
-                  />
-                );
+                if (name === item.assigned) {
+                  return (
+                    <BikerCard
+                      key={`admin-shipment-${index}`}
+                      origin={item.origin}
+                      destination={item.destination}
+                      assigned={item.assigned}
+                      orderStatus={item.order_status}
+                      orderId={item.order_id}
+                      pickup_estimate={item.pickup_estimate}
+                      bikers={bikers}
+                      editTimer={(orderId, timer) =>
+                        this.props.editTimer(orderId, timer)
+                      }
+                    />
+                  );
+                }
               })}
             </S.Shipments>
           </>
@@ -125,7 +135,8 @@ const mapDispatchToProps = dispatch => {
     authenticateUser: (email, password) =>
       dispatch(authenticateUser(email, password)),
     initializeUser: () => dispatch(authenticateUserRequest()),
-    assignedBiker: (orderId, biker) => dispatch(assignedBiker(orderId, biker))
+    assignedBiker: (orderId, biker) => dispatch(assignedBiker(orderId, biker)),
+    editTimer: (orderId, timer) => dispatch(editTimer(orderId, timer))
   };
 };
 

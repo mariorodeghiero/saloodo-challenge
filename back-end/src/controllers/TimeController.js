@@ -23,7 +23,7 @@ module.exports = {
           picked_up: false,
           delivered: false
         },
-        pickup_estimate: 4
+        pickup_estimate: null
       },
       {
         id: 25546,
@@ -47,11 +47,11 @@ module.exports = {
           picked_up: false,
           delivered: false
         },
-        pickup_estimate: 4
+        pickup_estimate: "30 min"
       }
     ];
 
-    const { assigned, order_id } = req.body;
+    const { duration_estimate, order_id } = req.body;
 
     let shipment = await shipments.find(order => order.order_id === order_id);
 
@@ -61,8 +61,8 @@ module.exports = {
     }
 
     const objIndex = shipments.findIndex(obj => obj.order_id == order_id);
-    shipments[objIndex].assigned = assigned;
-    console.log(objIndex);
+    shipments[objIndex].pickup_estimate = duration_estimate;
+    shipments[objIndex].order_status.picked_up = true;
     console.log(req.body);
     console.log(shipment);
 

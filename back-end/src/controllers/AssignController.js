@@ -19,11 +19,11 @@ module.exports = {
         },
         order_status: {
           waiting: true,
-          assigned: false,
+          assigned: true,
           picked_up: false,
           delivered: false
         },
-        pickup_estimate: 4
+        pickup_estimate: "45 min"
       },
       {
         id: 25546,
@@ -43,11 +43,11 @@ module.exports = {
         },
         order_status: {
           waiting: true,
-          assigned: true,
+          assigned: false,
           picked_up: false,
           delivered: false
         },
-        pickup_estimate: 4
+        pickup_estimate: "30 min"
       }
     ];
 
@@ -69,7 +69,3 @@ module.exports = {
     return res.status(200).json(shipments);
   }
 };
-
-// let newData = state.data;
-// const objIndex = newData.findIndex(obj => obj.id == 255858046);
-// newData[objIndex].assigned = "Mario";
