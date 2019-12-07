@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import Avatar from "../Avatar";
-import AdminCard from "../AdminCard";
-import BikerCard from "../BikerCard";
-import Login from "../Login";
+
+import AdminCard from "../../Components/AdminCard";
+import BikerCard from "../../Components/BikerCard";
+import Login from "../../Components/Login";
+import SideBar from "../../Components/SideBar";
 
 import {
   loadData,
@@ -20,7 +21,7 @@ import * as S from "./styled";
 export class Dashboard extends React.Component {
   componentDidMount() {
     const { loadData, loadBikers } = this.props;
-    loadData();
+    // loadData();
     loadBikers();
     this.props.loadAdminShipments();
     // this.props.authenticateUser("biker@gmail.com", "biker");
@@ -30,13 +31,8 @@ export class Dashboard extends React.Component {
     this.props.authenticateUser(email, password);
   }
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps !== this.props;
-  }
-
   render() {
     const bikers = this.props.bikers;
-
     const {
       isAuthenticate,
       typeOfAccess,
@@ -45,35 +41,20 @@ export class Dashboard extends React.Component {
     } = this.props.userAuthenticated;
     return (
       <S.DashboardWrapper>
-        {!isAuthenticate && (
+        {!isAuthenticate ? (
           <Login
             authenticateUser={(email, password) =>
               this.handleAuthenticateUser(email, password)
             }
           />
-        )}
-        {isAuthenticate && (
+        ) : (
           <>
-            <S.MenuBar>
-              <S.Profile>
-                <Avatar size="lg" image={image} />
-                <S.Name>{name}</S.Name>
-                <S.Access>
-                  Access: <S.Type>{typeOfAccess}</S.Type>
-                </S.Access>
-              </S.Profile>
-              <S.Menu>
-                <S.MenuTitle>MENU</S.MenuTitle>
-                <S.Item>
-                  {typeOfAccess === "manager" ? "Shipments" : "Orders"}
-                </S.Item>
-              </S.Menu>
-              <S.Logout>
-                <S.BtnLogout onClick={() => this.props.initializeUser()} />
-                <span>Log Out</span>
-              </S.Logout>
-            </S.MenuBar>
-            {console.log(this.props.shipments)}
+            <SideBar
+              image={image}
+              name={name}
+              typeOfAccess={typeOfAccess}
+              initializeUser={this.props.initializeUser}
+            />
             <S.Shipments>
               {this.props.shipments.data.map((item, index) => {
                 if (typeOfAccess === "manager") {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { GlobalStyle } from "./utils/styled";
 
 import Login from "./Components/Login";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./pages/Dashboard";
 
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
