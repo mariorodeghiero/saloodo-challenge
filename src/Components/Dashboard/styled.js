@@ -6,6 +6,7 @@ export const DashboardWrapper = styled.div`
   display: grid;
   grid-template-columns: 280px auto;
   grid-template-areas: "menubar shipments";
+  background-color: #fafafa;
   /* background: #606c88;
   height: 100vh;
   padding: 1.75rem 0 0 1rem;
@@ -145,7 +146,7 @@ export const Logout = styled.div`
 
   span {
     font-family: Roboto;
-    color: #ffffff;
+    color: #c3c3c3;
     font-size: 0.875rem;
     margin-left: 0.35rem;
 
@@ -162,6 +163,7 @@ export const BtnLogout = styled(LogOut)`
   width: 28px;
   height: 28px;
   cursor: pointer;
+  fill: #292e33;
   ${media.lessThan("large")`
     width: 24px;
     height: 24px;

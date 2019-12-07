@@ -14,10 +14,11 @@
 
 ## Built with
 
-- [React](http://reactjs.com/).
-- [webpack](https://webpack.js.org/).
-- [redux](https://redux.js.org/).
-- [styled-components](https://www.styled-components.com/).
+- [React](http://reactjs.com/)
+- [webpack](https://webpack.js.org/)
+- [redux](https://redux.js.org/)
+- [redux-thunk](https://github.com/reduxjs/redux-thunk)
+- [styled-components](https://www.styled-components.com/)
 
 ## Install
 
@@ -34,14 +35,30 @@ $ cd your-project-name
 $ npm install
 ```
 
-## Run
+## Install and Run **Back-End**
+
+```bash
+$ cd back-end
+```
+
+```bash
+$ npm install
+```
+
+```bash
+$ npm run server
+```
+
+Run the back-end on [http://localhost:3000/](http://localhost:3000/)
+
+## Run **Front-End**
 
 ```bash
 $ npm run start
 ```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Run the app in the development mode.<br />
+Open [http://localhost:8080/](http://localhost:8080/) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
@@ -52,8 +69,25 @@ You will also see any lint errors in the console.
 $ npm run build
 ```
 
-The build is minified and the filenames include the hashes.<br />
+The build is minified and the filenames.<br />
 Your app is ready to be deployed!
+
+## List of users access
+
+| type    |      user        | password |
+|---------|:----------------:|---------:|
+| manager | admin@gmail.com  | admin    |
+| biker   | biker@gmail.com  | biker    |
+| biker   | biker1@gmail.com | biker    |
+| biker   | biker2@gmail.com | biker    |
+| biker   | biker3@gmail.com | biker    |
+| biker   | biker4@gmail.com | biker    |
+| biker   | biker5@gmail.com | biker    |
+| biker   | biker6@gmail.com | biker    |
+| biker   | biker7@gmail.com | biker    |
+| biker   | biker8@gmail.com | biker    |
+| biker   | biker9@gmail.com | biker    |
+
 
 ## Author
 

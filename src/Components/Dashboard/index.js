@@ -23,7 +23,7 @@ export class Dashboard extends React.Component {
     loadData();
     loadBikers();
     this.props.loadAdminShipments();
-    this.props.authenticateUser("biker@gmail.com", "biker");
+    // this.props.authenticateUser("biker@gmail.com", "biker");
   }
 
   handleAuthenticateUser(email, password) {
@@ -45,6 +45,13 @@ export class Dashboard extends React.Component {
     } = this.props.userAuthenticated;
     return (
       <S.DashboardWrapper>
+        {!isAuthenticate && (
+          <Login
+            authenticateUser={(email, password) =>
+              this.handleAuthenticateUser(email, password)
+            }
+          />
+        )}
         {isAuthenticate && (
           <>
             <S.MenuBar>
@@ -75,6 +82,7 @@ export class Dashboard extends React.Component {
                       key={`admin-shipment-${index}`}
                       origin={item.origin}
                       destination={item.destination}
+                      pickupEstimate={item.pickup_estimate}
                       assigned={item.assigned}
                       orderStatus={item.order_status}
                       orderId={item.order_id}
@@ -94,7 +102,7 @@ export class Dashboard extends React.Component {
                       assigned={item.assigned}
                       orderStatus={item.order_status}
                       orderId={item.order_id}
-                      pickup_estimate={item.pickup_estimate}
+                      pickupEstimate={item.pickup_estimate}
                       bikers={bikers}
                       editTimer={(orderId, timer) =>
                         this.props.editTimer(orderId, timer)
@@ -105,13 +113,6 @@ export class Dashboard extends React.Component {
               })}
             </S.Shipments>
           </>
-        )}
-        {!isAuthenticate && (
-          <Login
-            authenticateUser={(email, password) =>
-              this.handleAuthenticateUser(email, password)
-            }
-          />
         )}
       </S.DashboardWrapper>
     );

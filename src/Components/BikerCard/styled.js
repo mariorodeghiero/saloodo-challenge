@@ -8,11 +8,11 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr 2fr 1fr;
   align-items: center;
   padding: 1.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   border-radius: 3px;
   width: 90%;
   background: white;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   ${media.lessThan("medium")`
     grid-template-columns: 1fr 1fr;

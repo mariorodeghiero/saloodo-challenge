@@ -10,8 +10,6 @@ export const Wrapper = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   padding: 32px;
   display: grid;
@@ -25,25 +23,26 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   text-align: center;
   font-size: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: #454d53;
 
   ${media.lessThan("large")`
     font-size: 1.25rem;
   `}
 `;
 
-export const Label = styled.label`
-  display: block;
-  margin: 1.5rem 0 0.15rem 0;
-  font-size: 0.75rem;
-  font-family: Roboto;
-`;
-
 export const Input = styled.input`
   width: 100%;
   outline: 0;
-  border-radius: 4px;
   padding: 8px;
-  border: 1px solid #c3c3c3;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #d7dde8;
+  margin: 0.875rem 0 1rem 0;
+  transition: border-bottom 0.5s, easy-ease-in-out;
+  :focus {
+    border-bottom: 1px solid #0275d8;
+  }
 `;
 
 export const Button = styled.button`
@@ -51,6 +50,7 @@ export const Button = styled.button`
   padding: 0.5rem 2.75rem;
   margin: 1.25rem 0 0 0;
   background-color: #d7dde8;
+  color: #454d53;
   border: none;
   outline: 0;
   width: 100%;

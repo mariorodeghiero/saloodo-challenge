@@ -14,22 +14,22 @@ const Login = props => {
     <S.Wrapper>
       <form onSubmit={event => handleSubmit(event)}>
         <S.Title>Saloodo Challenge</S.Title>
-        <S.Label htmlFor="email">Email:</S.Label>
         <S.Input
           id="email"
           onKeyUp={e => handleChangeEmail(e.currentTarget.value)}
           autoFocus
           type="email"
+          placeholder="Email"
           require
         ></S.Input>
-        <S.Label htmlFor="password">Password:</S.Label>
         <S.Input
           id="password"
           onKeyUp={e => handleChangePassword(e.currentTarget.value)}
           type="password"
           require
+          placeholder="Password"
         ></S.Input>
-        <S.Button>Submit</S.Button>
+        <S.Button>Log In</S.Button>
       </form>
     </S.Wrapper>
   );

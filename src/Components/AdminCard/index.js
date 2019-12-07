@@ -5,7 +5,7 @@ const AdminCard = props => {
   const [assignedBiker, setAssignedBiker] = useState("unassigned");
   const [editAssigned, setEditAssigned] = useState(false);
   const { waiting, assigned, picked_up, delivered } = props.orderStatus;
-  const { city, address, duration_estimate } = props.destination;
+  const { city, address } = props.destination;
   const bikers = props.bikers;
 
   const handleSubmit = event => {
@@ -19,6 +19,7 @@ const AdminCard = props => {
       <div>
         <S.BusinessIcon />
         <S.Origin>{props.origin}</S.Origin>
+        <S.Label>#{props.orderId}</S.Label>
       </div>
       <div>
         <ul>
@@ -29,8 +30,8 @@ const AdminCard = props => {
         </ul>
       </div>
       <div>
-        {/* <S.Label>Estimated time:</S.Label>
-        <S.Info>{duration_estimate} min</S.Info> */}
+        <S.Label>Estimated time:</S.Label>
+        <S.Info>{props.pickupEstimate}</S.Info>
         <S.Label>Address:</S.Label>
         <S.Info>
           {address}, {city}
@@ -60,7 +61,7 @@ const AdminCard = props => {
               </select>
             )}
           </S.Label>
-          {editAssigned && <S.BtnSubmit type="submit" value="Submit" />}
+          {editAssigned && <S.BtnSubmit type="submit" value="Save" />}
         </form>
       </div>
     </S.Wrapper>

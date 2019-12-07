@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as S from "./styled";
 
 const BikerCard = props => {
-  const [timeDuration, setTimeDuration] = useState(props.pickup_estimate);
+  const [timeDuration, setTimeDuration] = useState(props.pickupEstimate);
   const [editTime, setEditTime] = useState(false);
   const { waiting, assigned, picked_up, delivered } = props.orderStatus;
   const { city, address, zip } = props.destination;
@@ -10,7 +10,8 @@ const BikerCard = props => {
   const time = ["15 min", "30 min", "45 min", "1h", "1h 15min", "1h 30min"];
 
   const handleSubmit = event => {
-    props.editTimer(props.orderId, timeDuration);
+    const time = timeDuration === null ? "15 min" : timeDuration;
+    props.editTimer(props.orderId, time);
     setEditTime(false);
     event.preventDefault();
   };
@@ -20,6 +21,7 @@ const BikerCard = props => {
       <div>
         <S.BusinessIcon />
         <S.Origin>{props.origin}</S.Origin>
+        <S.Label>#{props.orderId}</S.Label>
       </div>
       <div>
         <ul>
@@ -41,13 +43,13 @@ const BikerCard = props => {
           <S.Label>
             Estimated time:
             <S.Info>
-              {props.pickup_estimate}
+              {props.pickupEstimate}
               <S.EditIcon
-                hide={props.pickup_estimate === null}
+                hide={props.pickupEstimate === null}
                 onClick={() => setEditTime(true)}
               />
             </S.Info>
-            {(props.pickup_estimate === null || editTime) && (
+            {(props.pickupEstimate === null || editTime) && (
               <select
                 value={timeDuration}
                 onChange={event => setTimeDuration(event.target.value)}
@@ -62,9 +64,10 @@ const BikerCard = props => {
               </select>
             )}
           </S.Label>
-          {(props.pickup_estimate === null || editTime) && (
-            <S.BtnSubmit type="submit" value="Submit" />
+          {(props.pickupEstimate === null || editTime) && (
+            <S.BtnSubmit type="submit" value="Save" />
           )}
+          {console.log(timeDuration)}
         </form>
       </div>
     </S.Wrapper>
