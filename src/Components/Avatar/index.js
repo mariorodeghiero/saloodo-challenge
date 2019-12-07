@@ -1,10 +1,8 @@
-import React from "react";
-import * as S from "./styled";
+import React from 'react';
+import * as S from './styled';
 
-const Avatar = props => {
-  return (
-    <S.Avatar center={props.center} image={props.image} size={props.size} />
-  );
-};
+const Avatar = ({ center, image, size }) => (
+  <S.Avatar center={center} image={image} size={size} />
+);
 
 export default Avatar;

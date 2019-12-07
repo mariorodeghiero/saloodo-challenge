@@ -32,7 +32,7 @@ const bikers = [
     first_name: "Janet",
     last_name: "Salazar",
     name: "Janet Salazar",
-    email: "janetsalazar@gmail.com",
+    email: "biker1@gmail.com",
     image: "https://randomuser.me/api/portraits/women/4.jpg"
   },
   {
@@ -41,7 +41,7 @@ const bikers = [
     first_name: "Danielle",
     last_name: "Wells",
     name: "Danielle Wells",
-    email: "daniellewells@gmail.com",
+    email: "biker2@gmail.com",
     image: "https://randomuser.me/api/portraits/women/14.jpg"
   },
   {
@@ -50,7 +50,7 @@ const bikers = [
     first_name: "Melissa",
     last_name: "Hill",
     name: "Melissa Hill",
-    email: "melissahill@gmail.com",
+    email: "biker3@gmail.com",
     image: "https://randomuser.me/api/portraits/women/23.jpg"
   },
   {
@@ -59,7 +59,7 @@ const bikers = [
     first_name: "Terry",
     last_name: "Weber",
     name: "Terry Weber",
-    email: "terryweber@gmail.com",
+    email: "biker4@gmail.com",
     image: "https://randomuser.me/api/portraits/men/12.jpg"
   },
   {
@@ -68,7 +68,7 @@ const bikers = [
     first_name: "Larry",
     last_name: "Bell",
     name: "Larry Bell",
-    email: "larrybell@gmail.com",
+    email: "biker5@gmail.com",
     image: "https://randomuser.me/api/portraits/men/23.jpg"
   },
   {
@@ -77,7 +77,7 @@ const bikers = [
     first_name: "Scott",
     last_name: "Holmes",
     name: "Scott Holmes",
-    email: "scottholmes@gmail.com",
+    email: "biker6@gmail.com",
     image: "https://randomuser.me/api/portraits/men/43.jpg"
   },
   {
@@ -86,7 +86,7 @@ const bikers = [
     first_name: "Lisa",
     last_name: "Walters",
     name: "Lisa Wlaters",
-    email: "lisawlaters@gmail.com",
+    email: "biker7@gmail.com",
     image: "https://randomuser.me/api/portraits/women/22.jpg"
   },
   {
@@ -95,7 +95,7 @@ const bikers = [
     first_name: "Deborah",
     last_name: "Knight",
     name: "Debora Knight",
-    email: "deboraknight@gmail.com",
+    email: "biker8@gmail.com",
     image: "https://randomuser.me/api/portraits/women/15.jpg"
   },
   {
@@ -104,7 +104,7 @@ const bikers = [
     first_name: "Sharon",
     last_name: "Bailey",
     name: "Sharon Bailey",
-    email: "sharonbailey@gmail.com",
+    email: "biker9@gmail.com",
     image: "https://randomuser.me/api/portraits/men/53.jpg"
   }
 ];

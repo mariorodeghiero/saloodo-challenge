@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "styled-media-query";
+import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const Wrapper = styled.div`
   width: 30%;
@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   display: grid;
   align-content: center;
 
-  ${media.lessThan("large")`
+  ${media.lessThan('large')`
     height: 40%;
   `}
 `;
@@ -23,10 +23,11 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   text-align: center;
   font-size: 1.875rem;
-  margin-bottom: 1.5rem;
-  color: #454d53;
+  margin-bottom: 1.875rem;
+  font-weight: 600;
+  color: #FECD1A;
 
-  ${media.lessThan("large")`
+  ${media.lessThan('large')`
     font-size: 1.25rem;
   `}
 `;
@@ -41,7 +42,7 @@ export const Input = styled.input`
   margin: 0.875rem 0 1rem 0;
   transition: border-bottom 0.5s, easy-ease-in-out;
   :focus {
-    border-bottom: 1px solid #0275d8;
+    border-bottom: 1px solid #FECD1A;
   }
 `;
 
@@ -49,7 +50,7 @@ export const Button = styled.button`
   border-radius: 4px;
   padding: 0.5rem 2.75rem;
   margin: 1.25rem 0 0 0;
-  background-color: #d7dde8;
+  background-color: #FECD1A;
   color: #454d53;
   border: none;
   outline: 0;

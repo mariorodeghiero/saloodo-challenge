@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import * as S from "./styled";
+import React, { useState } from 'react';
+import * as S from './styled';
 
-const AdminCard = props => {
-  const [assignedBiker, setAssignedBiker] = useState("unassigned");
+const AdminCard = (props) => {
+  const [assignedBiker, setAssignedBiker] = useState('unassigned');
   const [editAssigned, setEditAssigned] = useState(false);
-  const { waiting, assigned, picked_up, delivered } = props.orderStatus;
+  const {
+ waiting, assigned, picked_up, delivered
+} = props.orderStatus;
   const { city, address } = props.destination;
-  const bikers = props.bikers;
+  const { bikers } = props;
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     props.assignedBiker(props.orderId, assignedBiker);
     setEditAssigned(false);
     event.preventDefault();
@@ -38,26 +40,24 @@ const AdminCard = props => {
         </S.Info>
       </div>
       <div>
-        <form onSubmit={event => handleSubmit(event)}>
+        <form onSubmit={(event) => handleSubmit(event)}>
           <S.Label>
             Assigned:
             <S.Assigned>
-              {props.assigned ? props.assigned : "Unassigned"}
+              {props.assigned ? props.assigned : 'Unassigned'}
               <S.EditIcon onClick={() => setEditAssigned(!editAssigned)} />
             </S.Assigned>
             {editAssigned && (
               <select
                 value={assignedBiker}
-                onChange={event => setAssignedBiker(event.target.value)}
+                onChange={(event) => setAssignedBiker(event.target.value)}
               >
                 <option value="unassigned">Unassigned</option>
-                {bikers.map((item, index) => {
-                  return (
-                    <option key={`biker-select-${index}`} value={item.name}>
-                      {item.name}
-                    </option>
-                  );
-                })}
+                {bikers.map((item, index) => (
+                  <option key={`biker-select-${index}`} value={item.name}>
+                    {item.name}
+                  </option>
+                ))}
               </select>
             )}
           </S.Label>

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import * as S from "./styled";
+import React, { useState } from 'react';
+import * as S from './styled';
 
-const BikerCard = props => {
+const BikerCard = (props) => {
   const [timeDuration, setTimeDuration] = useState(props.pickupEstimate);
   const [editTime, setEditTime] = useState(false);
-  const { waiting, assigned, picked_up, delivered } = props.orderStatus;
+  const {
+    waiting, assigned, picked_up, delivered,
+  } = props.orderStatus;
   const { city, address, zip } = props.destination;
 
-  const time = ["15 min", "30 min", "45 min", "1h", "1h 15min", "1h 30min"];
+  const time = ['15 min', '30 min', '45 min', '1h', '1h 15min', '1h 30min'];
 
-  const handleSubmit = event => {
-    const time = timeDuration === null ? "15 min" : timeDuration;
+  const handleSubmit = (event) => {
+    const time = timeDuration === null ? '15 min' : timeDuration;
     props.editTimer(props.orderId, time);
     setEditTime(false);
     event.preventDefault();
@@ -39,7 +41,7 @@ const BikerCard = props => {
         <S.Label>{zip}</S.Label>
       </div>
       <div>
-        <form onSubmit={event => handleSubmit(event)}>
+        <form onSubmit={(event) => handleSubmit(event)}>
           <S.Label>
             Estimated time:
             <S.Info>
@@ -52,22 +54,19 @@ const BikerCard = props => {
             {(props.pickupEstimate === null || editTime) && (
               <select
                 value={timeDuration}
-                onChange={event => setTimeDuration(event.target.value)}
+                onChange={(event) => setTimeDuration(event.target.value)}
               >
-                {time.map((item, index) => {
-                  return (
-                    <option key={`biker-select-${index}`} value={item}>
-                      {item}
-                    </option>
-                  );
-                })}
+                {time.map((item, index) => (
+                  <option key={`biker-select-${index}`} value={item}>
+                    {item}
+                  </option>
+                ))}
               </select>
             )}
           </S.Label>
           {(props.pickupEstimate === null || editTime) && (
             <S.BtnSubmit type="submit" value="Save" />
           )}
-          {console.log(timeDuration)}
         </form>
       </div>
     </S.Wrapper>

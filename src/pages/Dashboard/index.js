@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import AdminCard from "../../Components/AdminCard";
-import BikerCard from "../../Components/BikerCard";
-import Login from "../../Components/Login";
-import SideBar from "../../Components/SideBar";
+import AdminCard from '../../Components/AdminCard';
+import BikerCard from '../../Components/BikerCard';
+import Login from '../../Components/Login';
+import SideBar from '../../Components/SideBar';
 
 import {
   loadData,
@@ -13,10 +13,10 @@ import {
   authenticateUser,
   authenticateUserRequest,
   assignedBiker,
-  editTimer
-} from "../../actions/actions";
+  editTimer,
+} from '../../actions/actions';
 
-import * as S from "./styled";
+import * as S from './styled';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
@@ -32,20 +32,18 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    const bikers = this.props.bikers;
+    const { bikers } = this.props;
     const {
       isAuthenticate,
       typeOfAccess,
       name,
-      image
+      image,
     } = this.props.userAuthenticated;
     return (
       <S.DashboardWrapper>
         {!isAuthenticate ? (
           <Login
-            authenticateUser={(email, password) =>
-              this.handleAuthenticateUser(email, password)
-            }
+            authenticateUser={(email, password) => this.handleAuthenticateUser(email, password)}
           />
         ) : (
           <>
@@ -56,11 +54,11 @@ export class Dashboard extends React.Component {
               initializeUser={this.props.initializeUser}
             />
             <S.Shipments>
-              {this.props.shipments.data.map((item, index) => {
-                if (typeOfAccess === "manager") {
+              {this.props.shipments.data.map((item) => {
+                if (typeOfAccess === 'manager') {
                   return (
                     <AdminCard
-                      key={`admin-shipment-${index}`}
+                      key={`admin-shipment-${item.order_id}`}
                       origin={item.origin}
                       destination={item.destination}
                       pickupEstimate={item.pickup_estimate}
@@ -68,16 +66,14 @@ export class Dashboard extends React.Component {
                       orderStatus={item.order_status}
                       orderId={item.order_id}
                       bikers={bikers}
-                      assignedBiker={(orderId, biker) =>
-                        this.props.assignedBiker(orderId, biker)
-                      }
+                      assignedBiker={(orderId, biker) => this.props.assignedBiker(orderId, biker)}
                     />
                   );
                 }
                 if (name === item.assigned) {
                   return (
                     <BikerCard
-                      key={`admin-shipment-${index}`}
+                      key={`admin-shipment-${item.order_id}`}
                       origin={item.origin}
                       destination={item.destination}
                       assigned={item.assigned}
@@ -85,9 +81,7 @@ export class Dashboard extends React.Component {
                       orderId={item.order_id}
                       pickupEstimate={item.pickup_estimate}
                       bikers={bikers}
-                      editTimer={(orderId, timer) =>
-                        this.props.editTimer(orderId, timer)
-                      }
+                      editTimer={(orderId, timer) => this.props.editTimer(orderId, timer)}
                     />
                   );
                 }
@@ -100,26 +94,21 @@ export class Dashboard extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user.data,
-    shipments: state.adminShipments,
-    bikers: state.bikers.data,
-    userAuthenticated: state.userAuth
-  };
-};
+const mapStateToProps = (state) => ({
+  user: state.user.data,
+  shipments: state.adminShipments,
+  bikers: state.bikers.data,
+  userAuthenticated: state.userAuth,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadData: () => dispatch(loadData()),
-    loadAdminShipments: () => dispatch(loadAdminShipments()),
-    loadBikers: () => dispatch(loadBikers()),
-    authenticateUser: (email, password) =>
-      dispatch(authenticateUser(email, password)),
-    initializeUser: () => dispatch(authenticateUserRequest()),
-    assignedBiker: (orderId, biker) => dispatch(assignedBiker(orderId, biker)),
-    editTimer: (orderId, timer) => dispatch(editTimer(orderId, timer))
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  loadData: () => dispatch(loadData()),
+  loadAdminShipments: () => dispatch(loadAdminShipments()),
+  loadBikers: () => dispatch(loadBikers()),
+  authenticateUser: (email, password) => dispatch(authenticateUser(email, password)),
+  initializeUser: () => dispatch(authenticateUserRequest()),
+  assignedBiker: (orderId, biker) => dispatch(assignedBiker(orderId, biker)),
+  editTimer: (orderId, timer) => dispatch(editTimer(orderId, timer)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
