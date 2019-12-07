@@ -21,7 +21,7 @@
 - [redux-thunk](https://github.com/reduxjs/redux-thunk)
 - [styled-components](https://www.styled-components.com/)
 
-**Note** - This project uses redux-logger activated to show the states; you only need to open the console in *Developer tools*.
+**Note** - This project uses redux-logger activated to show the states; you only need to open the console in *Developer tools* to see the log.
 
 ## Style guide
 
@@ -75,7 +75,6 @@ Run the app in the development mode.<br />
 Open [http://localhost:8080/](http://localhost:8080/) to view it in the browser.
 
 The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
 ## Build
 

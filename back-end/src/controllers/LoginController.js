@@ -14,7 +14,7 @@ module.exports = {
         first_name: "Arthur",
         last_name: "Stone",
         name: "Arthur Stone",
-        email: "biker@gmail",
+        email: "biker@gmail.com",
         image: "https://randomuser.me/api/portraits/men/12.jpg",
         typeOfAccess: "biker",
         password: "biker"
@@ -55,7 +55,7 @@ module.exports = {
         last_name: "Weber",
         name: "Terry Weber",
         email: "biker4@gmail.com",
-        image: "https://randomuser.me/api/portraits/men/12.jpg",
+        image: "https://randomuser.me/api/portraits/men/62.jpg",
         typeOfAccess: "biker",
         password: "biker"
       },
@@ -112,7 +112,7 @@ module.exports = {
     ];
 
     const { email } = req.body;
-
+    console.log(req.body)
     let user = await users.find(user => user.email === email);
 
     if (!user) {
