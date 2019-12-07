@@ -1,6 +1,7 @@
 <div align="center">
 
-<h1>Saloodo Challenge </h1>
+<img src="./src/assets/logo.svg" style="width: 300px">
+<h1 style="margin-top: -15px; color: #fecd1a">Challenge </h1>
 
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
@@ -19,6 +20,19 @@
 - [redux](https://redux.js.org/)
 - [redux-thunk](https://github.com/reduxjs/redux-thunk)
 - [styled-components](https://www.styled-components.com/)
+
+**Note** - This project uses redux-logger activated to show the states; you only need to open the console in *Developer tools*.
+
+## Style guide
+
+[Airbnb React/JSX](https://github.com/airbnb/javascript/tree/master/react)
+
+Files:
+
+>.eslintrc.json
+
+>.editorconfig
+
 
 ## Install
 
