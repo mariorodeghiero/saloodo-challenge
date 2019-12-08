@@ -7,7 +7,6 @@ import Login from '../../Components/Login';
 import SideBar from '../../Components/SideBar';
 
 import {
-  loadData,
   loadAdminShipments,
   loadBikers,
   authenticateUser,
@@ -20,11 +19,13 @@ import * as S from './styled';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
-    const { loadData, loadBikers } = this.props;
-    // loadData();
-    loadBikers();
-    this.props.loadAdminShipments();
-    // this.props.authenticateUser("biker@gmail.com", "biker");
+    const { loadBikers, adminShipments } = this.props;
+    console.log(this.props.shipments.data)
+    // if(adminShipments) {
+      this.props.loadAdminShipments();
+      loadBikers();
+      // console.log("test")
+    // }
   }
 
   handleAuthenticateUser(email, password) {
@@ -39,6 +40,7 @@ export class Dashboard extends React.Component {
       name,
       image,
     } = this.props.userAuthenticated;
+    console.log(this.props)
     return (
       <S.DashboardWrapper>
         {!isAuthenticate ? (
@@ -95,14 +97,12 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user.data,
   shipments: state.adminShipments,
   bikers: state.bikers.data,
   userAuthenticated: state.userAuth,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  loadData: () => dispatch(loadData()),
   loadAdminShipments: () => dispatch(loadAdminShipments()),
   loadBikers: () => dispatch(loadBikers()),
   authenticateUser: (email, password) => dispatch(authenticateUser(email, password)),

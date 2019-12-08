@@ -5,7 +5,9 @@ import { Business } from "styled-icons/material/Business";
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "order status origin assigned"
+                       "order status dest assigned";
   align-items: center;
   padding: 1.5rem;
   margin-top: 0.5rem;
@@ -13,12 +15,34 @@ export const Wrapper = styled.div`
   width: 90%;
   background: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-
   ${media.lessThan("medium")`
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 100px;
+    grid-template-areas: "order status"
+                         "origin dest"
+                         "assigned assigned";
+    grid-row-gap: 1rem;
     border-radius: 4px;
   `};
+`;
+
+export const OrderSection = styled.div`
+  grid-area: order;
+`;
+
+export const StatusSection = styled.div`
+  grid-area: status;
+`;
+
+export const AssignedSection = styled.div`
+  grid-area: assigned;
+`;
+
+export const OriginSection = styled.div`
+  grid-area: origin;
+`;
+
+export const DestinationSection = styled.div`
+  grid-area: dest;
 `;
 
 export const Status = styled.li`
@@ -55,12 +79,12 @@ export const Origin = styled.h3`
 export const Info = styled.p`
   font-family: Roboto;
   font-weight: 300;
-  font-size: 1.15rem;
+  font-size: 0.875rem;
   color: #292e33;
   padding: 0.25rem;
   text-transform: capitalize;
   ${media.lessThan("medium")`
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.6em;
   `};
 `;
@@ -68,13 +92,26 @@ export const Info = styled.p`
 export const Assigned = styled.p`
   font-family: Roboto;
   font-weight: 300;
-  font-size: 1.15rem;
+  font-size: 0.875rem;
   color: #292e33;
   padding: 0.25rem;
   text-transform: capitalize;
   ${media.lessThan("medium")`
     font-size: 0.675rem;
     line-height: 1.2em;
+    display: inline;
+  `};
+`;
+
+export const AssignedLabel = styled.label`
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: #95a1ac;
+  padding: 0.25rem;
+  text-align: left;
+  ${media.lessThan("medium")`
+    font-size: 0.75rem;
   `};
 `;
 
@@ -104,4 +141,8 @@ export const BtnSubmit = styled.input`
   border-radius: 3px;
   border: none;
   outline: 0;
+  margin-left: 0.5rem;
+  ${media.lessThan("medium")`
+    margin-top: 0.5rem;
+  `};
 `;

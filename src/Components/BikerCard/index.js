@@ -8,6 +8,7 @@ const BikerCard = (props) => {
     waiting, assigned, picked_up, delivered,
   } = props.orderStatus;
   const { city, address, zip } = props.destination;
+  const {origin_name} = props.origin
 
   const time = ['15 min', '30 min', '45 min', '1h', '1h 15min', '1h 30min'];
 
@@ -20,30 +21,37 @@ const BikerCard = (props) => {
 
   return (
     <S.Wrapper>
-      <div>
+      <S.OrderSection>
         <S.BusinessIcon />
-        <S.Origin>{props.origin}</S.Origin>
+        <S.Origin>{origin_name}</S.Origin>
         <S.Label>#{props.orderId}</S.Label>
-      </div>
-      <div>
+        <S.Label>{props.pickupEstimate}</S.Label>
+      </S.OrderSection>
+      <S.StatusSection>
         <ul>
           <S.Status status={waiting}>Waiting</S.Status>
           <S.Status status={assigned}>Assigned</S.Status>
           <S.Status status={picked_up}>Pike Up</S.Status>
           <S.Status status={delivered}>Delivered</S.Status>
         </ul>
-      </div>
-      <div>
-        <S.Info>Delivery location:</S.Info>
-        <S.Label>
-          {address}, {city}
-        </S.Label>
-        <S.Label>{zip}</S.Label>
-      </div>
-      <div>
+      </S.StatusSection>
+      <S.OriginSection>
+        <S.Label>Origin:</S.Label>
+        <S.Info>
+          {props.origin.address}, {props.origin.zip}
+        </S.Info>
+      </S.OriginSection>
+      <S.DestinationSection>
+        <S.Label>Destination:</S.Label>
+        <S.Info>
+          {address}, {zip}
+        </S.Info>
+      </S.DestinationSection>
+      <S.AssignedSection>
         <form onSubmit={(event) => handleSubmit(event)}>
-          <S.Label>
-            Estimated time:
+        <S.EstimateTimeLabel>
+          Estimated time:
+        </S.EstimateTimeLabel>
             <S.Info>
               {props.pickupEstimate}
               <S.EditIcon
@@ -63,12 +71,11 @@ const BikerCard = (props) => {
                 ))}
               </select>
             )}
-          </S.Label>
           {(props.pickupEstimate === null || editTime) && (
             <S.BtnSubmit type="submit" value="Save" />
           )}
         </form>
-      </div>
+      </S.AssignedSection>
     </S.Wrapper>
   );
 };

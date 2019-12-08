@@ -10,6 +10,8 @@ export const MenuBar = styled.div`
   flex-direction: column;
   justify-content: space-between;
   grid-area: menubar;
+  position: fixed;
+  width: 280px;
 
   ${media.lessThan('large')`
     height: auto;
@@ -133,3 +135,4 @@ export const BtnLogout = styled(LogOut)`
     height: 24px;
   `}
 `;
+

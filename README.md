@@ -85,21 +85,21 @@ $ npm run build
 The build is minified and the filenames.<br />
 Your app is ready to be deployed!
 
-## List of users access
+## User Access List
 
-| type    |      user        | password |
-|---------|:----------------:|---------:|
-| manager | admin@gmail.com  | admin    |
-| biker   | biker@gmail.com  | biker    |
-| biker   | biker1@gmail.com | biker    |
-| biker   | biker2@gmail.com | biker    |
-| biker   | biker3@gmail.com | biker    |
-| biker   | biker4@gmail.com | biker    |
-| biker   | biker5@gmail.com | biker    |
-| biker   | biker6@gmail.com | biker    |
-| biker   | biker7@gmail.com | biker    |
-| biker   | biker8@gmail.com | biker    |
-| biker   | biker9@gmail.com | biker    |
+| type    |      user        | password |      name      |
+|---------|:----------------:|---------:|---------------:|
+| manager | admin@gmail.com  | admin    | Eugene Powell  |
+| biker   | biker@gmail.com  | biker    | Arthur Stone   |
+| biker   | biker1@gmail.com | biker    | Janet Salazar  |
+| biker   | biker2@gmail.com | biker    | Danielle Wells |
+| biker   | biker3@gmail.com | biker    | Melissa Hill   |
+| biker   | biker4@gmail.com | biker    | Terry Weber    |
+| biker   | biker5@gmail.com | biker    | Larry Bell     |
+| biker   | biker6@gmail.com | biker    | Scott Holmes   |
+| biker   | biker7@gmail.com | biker    | Lisa Wlaters   |
+| biker   | biker8@gmail.com | biker    | Debora Knight  |
+| biker   | biker9@gmail.com | biker    | Sharon Bailey  |
 
 
 ## Author

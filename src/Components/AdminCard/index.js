@@ -7,7 +7,8 @@ const AdminCard = (props) => {
   const {
  waiting, assigned, picked_up, delivered
 } = props.orderStatus;
-  const { city, address } = props.destination;
+  const { zip, address } = props.destination;
+  const {name} = props.origin
   const { bikers } = props;
 
   const handleSubmit = (event) => {
@@ -18,31 +19,37 @@ const AdminCard = (props) => {
 
   return (
     <S.Wrapper>
-      <div>
+      <S.OrderSection>
         <S.BusinessIcon />
-        <S.Origin>{props.origin}</S.Origin>
+        <S.Origin>{name}</S.Origin>
         <S.Label>#{props.orderId}</S.Label>
-      </div>
-      <div>
+        <S.Label>{props.pickupEstimate}</S.Label>
+      </S.OrderSection>
+      <S.StatusSection>
         <ul>
           <S.Status status={waiting}>Waiting</S.Status>
           <S.Status status={assigned}>Assigned</S.Status>
           <S.Status status={picked_up}>Pike Up</S.Status>
           <S.Status status={delivered}>Delivered</S.Status>
         </ul>
-      </div>
-      <div>
-        <S.Label>Estimated time:</S.Label>
-        <S.Info>{props.pickupEstimate}</S.Info>
-        <S.Label>Address:</S.Label>
+      </S.StatusSection>
+      <S.OriginSection>
+        <S.Label>Origin:</S.Label>
         <S.Info>
-          {address}, {city}
+          {props.origin.address}, {props.origin.zip}
         </S.Info>
-      </div>
-      <div>
+      </S.OriginSection>
+      <S.DestinationSection>
+        <S.Label>Destination:</S.Label>
+        <S.Info>
+          {address}, {zip}
+        </S.Info>
+      </S.DestinationSection>
+      <S.AssignedSection>
         <form onSubmit={(event) => handleSubmit(event)}>
-          <S.Label>
+          <S.AssignedLabel>
             Assigned:
+          </S.AssignedLabel>
             <S.Assigned>
               {props.assigned ? props.assigned : 'Unassigned'}
               <S.EditIcon onClick={() => setEditAssigned(!editAssigned)} />
@@ -60,10 +67,9 @@ const AdminCard = (props) => {
                 ))}
               </select>
             )}
-          </S.Label>
           {editAssigned && <S.BtnSubmit type="submit" value="Save" />}
         </form>
-      </div>
+      </S.AssignedSection>
     </S.Wrapper>
   );
 };

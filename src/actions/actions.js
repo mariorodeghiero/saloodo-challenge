@@ -38,39 +38,6 @@ export const authenticateUser = (email, password) => {
 };
 
 /**
- * loadData action
- */
-export const loadDataRequest = () => {
-  return {
-    type: "LOAD_DATA_REQUEST"
-  };
-};
-
-export const loadDataSuccess = data => {
-  return {
-    type: "LOAD_DATA_SUCCESS",
-    data
-  };
-};
-
-export const loadDataFailure = data => {
-  return {
-    type: "LOAD_DATA_FAILURE",
-    data
-  };
-};
-
-export const loadData = () => {
-  return dispatch => {
-    dispatch(loadDataRequest());
-    axios
-      .get("http://localhost:3000/manager")
-      .then(({ data }) => dispatch(loadDataSuccess(data)))
-      .catch(() => dispatch(loadDataFailure()));
-  };
-};
-
-/**
  * loadAdminShipments action
  */
 
