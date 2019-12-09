@@ -3,7 +3,7 @@ import media from 'styled-media-query';
 
 export const DashboardWrapper = styled.div`
   display: grid;
-  grid-template-columns: 280px auto;
+  grid-template-columns: 240px auto;
   grid-template-areas: "menubar shipments";
   background-color: #fafafa;
 
@@ -23,7 +23,6 @@ export const Shipments = styled.div`
   align-items: center;
 
   ${media.lessThan('medium')`
-    height: 90vh;
-    margin-bottom: 200px;
+    margin-bottom: 40px;
   `}
 `;

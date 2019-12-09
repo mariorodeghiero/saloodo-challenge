@@ -11,7 +11,7 @@ export const MenuBar = styled.div`
   justify-content: space-between;
   grid-area: menubar;
   position: fixed;
-  width: 280px;
+  width: 240px;
 
   ${media.lessThan('large')`
     height: auto;
@@ -130,7 +130,7 @@ export const BtnLogout = styled(LogOut)`
   width: 28px;
   height: 28px;
   cursor: pointer;
-  fill: var(--text);
+  fill: var(--bg-icon);
   ${media.lessThan('large')`
     width: 24px;
     height: 24px;

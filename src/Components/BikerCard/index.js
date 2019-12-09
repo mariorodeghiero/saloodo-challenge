@@ -13,7 +13,7 @@ const BikerCard = (props) => {
   const time = ['15 min', '30 min', '45 min', '1h', '1h 15min', '1h 30min'];
 
   const handleSubmit = (event) => {
-    const time = timeDuration === null ? '15 min' : timeDuration;
+    const time = timeDuration === 'Time: waiting biker' ? '15 min' : timeDuration;
     props.editTimer(props.orderId, time);
     setEditTime(false);
     event.preventDefault();
@@ -32,7 +32,6 @@ const BikerCard = (props) => {
           <S.Status status={assigned}>Assigned</S.Status>
           <S.Status status={picked_up}>Pike Up</S.Status>
           <S.Status status={delivered}>Delivered</S.Status>
-          {picked_up && !delivered && <button onClick={() => props.confirmDelivered(props.orderId)}>Delivered shipment</button>}
         </ul>
       </S.StatusSection>
       <S.OriginSection>
@@ -78,6 +77,9 @@ const BikerCard = (props) => {
             <S.BtnSubmit type="submit" value="Save" />
           )}
         </form>
+        {picked_up && !delivered && (
+          <S.BtnDelivered onClick={() => props.confirmDelivered(props.orderId)}>Delivered?</S.BtnDelivered>
+        )}
       </S.AssignedSection>
     </S.Wrapper>
   );

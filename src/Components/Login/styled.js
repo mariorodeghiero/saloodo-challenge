@@ -4,6 +4,7 @@ import { FadeIn } from '../../utils/styled';
 
 export const Wrapper = styled.div`
   width: 30%;
+  max-width: 400px;
   min-width: 280px;
   height: 48%;
   min-height: 260px;

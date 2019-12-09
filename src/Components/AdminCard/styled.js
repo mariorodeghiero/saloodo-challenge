@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
   margin-top: 0.5rem;
   border-radius: 3px;
   width: 90%;
+  max-width: 1080px;
   background: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   animation: 0.5s ${FadeIn} ease-in;
@@ -25,6 +26,7 @@ export const Wrapper = styled.div`
                          "assigned assigned";
     grid-row-gap: 1rem;
     border-radius: 4px;
+    margin-bottom: 20px;
   `};
 `;
 
@@ -50,7 +52,7 @@ export const DestinationSection = styled.div`
 
 export const Status = styled.li`
   font-family: Roboto;
-  font-weight: ${(props) => (props.status ? '400' : '300')};
+  font-weight: 300;
   font-size: 0.875rem;
   color: ${(props) => (props.status ? 'var(--status-active)' : 'var(--status-inactive)')};
   padding: 0.25rem;
