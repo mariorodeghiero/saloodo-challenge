@@ -3,7 +3,7 @@ import Avatar from '../Avatar';
 import * as S from './styled';
 
 const SideBar = ({
- image, name, typeOfAccess, initializeUser 
+  image, name, typeOfAccess, initializeUser,
 }) => (
   <S.MenuBar>
     <S.Profile>

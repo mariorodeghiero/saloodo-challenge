@@ -21,8 +21,8 @@ import * as S from './styled';
 export class Dashboard extends React.Component {
   componentDidMount() {
     const { loadBikers } = this.props;
-      this.props.loadAdminShipments();
-      loadBikers();
+    this.props.loadAdminShipments();
+    loadBikers();
   }
 
   handleAuthenticateUser(email, password) {
@@ -37,7 +37,7 @@ export class Dashboard extends React.Component {
       name,
       image,
     } = this.props.userAuthenticated;
-    console.log(this.props)
+    console.log(this.props);
     return (
       <S.DashboardWrapper>
         {!isAuthenticate ? (

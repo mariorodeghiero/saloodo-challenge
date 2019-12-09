@@ -1,11 +1,11 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "index_bundle.js"
+    path: path.join(__dirname, '/dist'),
+    filename: 'index_bundle.js',
   },
   module: {
     rules: [
@@ -13,19 +13,19 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader'
-    }
-    ]
+        loader: 'svg-inline-loader',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
+      template: './src/index.html',
+    }),
   ],
-  devtool : 'inline-source-maps',
+  devtool: 'inline-source-maps',
 };

@@ -52,7 +52,7 @@ const AdminCard = (props) => {
           </S.AssignedLabel>
           <S.Assigned>
             {props.assigned ? props.assigned : 'Unassigned'}
-            <S.EditIcon onClick={() => setEditAssigned(!editAssigned)} />
+            {!picked_up && <S.EditIcon onClick={() => setEditAssigned(!editAssigned)} />}
           </S.Assigned>
           {editAssigned && (
           <S.Select

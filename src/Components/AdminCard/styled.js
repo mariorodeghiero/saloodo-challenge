@@ -142,7 +142,6 @@ export const BtnSubmit = styled.input`
   border-radius: 3px;
   border: none;
   outline: 0;
-  margin-left: 0.5rem;
   ${media.lessThan('medium')`
     margin-top: 0.5rem;
   `};
@@ -155,7 +154,7 @@ export const Select = styled.select`
   border: 1px solid white;
   line-height: 1;
   outline: 0;
-  padding: 0.65em 2.5em 0.55em 0.75em;
+  padding: 0.55em 2.5em 0.55em 0.75em;
   border-radius: 0;
   background-color: #e3e3e3;
   background-image: linear-gradient(white, white),
