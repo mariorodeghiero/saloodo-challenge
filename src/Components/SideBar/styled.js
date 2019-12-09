@@ -20,9 +20,9 @@ export const MenuBar = styled.div`
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    padding: .5rem 0 0.5rem 1rem;
-    background: #ffffff;
-    border-top: 1px solid #f5f5f5;
+    padding: 0.5rem 2rem 0.5rem 4rem;
+    background: var(--white);
+    border-top: 1px solid var(--border);
   `}
 `;
 
@@ -32,14 +32,14 @@ export const Profile = styled.div`
   grid-row-gap: 1.75rem;
   align-items: end;
   ${media.lessThan('large')`
-    margin-bottom: 0;
+    align-items: center;
   `}
 `;
 
 export const Name = styled.h2`
   font-size: 1.25rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--white);
   ${media.lessThan('large')`
     display: none;
   `}
@@ -50,7 +50,7 @@ export const Access = styled.p`
   font-weight: 300;
   line-height: 0;
   font-family: Roboto;
-  color: #292e33;
+  color: var(--text);
   ${media.lessThan('large')`
     display: none;
   `}
@@ -60,7 +60,7 @@ export const Type = styled.span`
   font-size: 0.875rem;
   font-weight: 300;
   font-family: Roboto;
-  color: #c3c3c3;
+  color: var(--silver);
   text-transform: capitalize;
   ${media.lessThan('large')`
     display: none;
@@ -87,7 +87,7 @@ export const MenuTitle = styled.h2`
 `;
 
 export const Item = styled.li`
-  color: #ffffff;
+  color: var(--white);
   font-family: Roboto;
   font-weight: 300;
   font-size: 1rem;
@@ -105,22 +105,23 @@ export const Logout = styled.div`
 
   ${media.lessThan('large')`
     margin-bottom: 0;
-    margin-top: 0.75rem;
     display: grid;
     justify-items: center;
+    align-items: center;
   `}
 
   span {
     font-family: Roboto;
-    color: #c3c3c3;
+    color: var(--silver);
     font-size: 0.875rem;
     margin-left: 0.35rem;
 
     ${media.lessThan('large')`
       font-size: 0.5rem;
-      color: #B8C3CC;
+      color: var(--status-inactive);
       display: block;
       line-height: 1.2em;
+      display: none;
     `}
   }
 `;
@@ -129,10 +130,10 @@ export const BtnLogout = styled(LogOut)`
   width: 28px;
   height: 28px;
   cursor: pointer;
-  fill: #292e33;
+  fill: var(--text);
   ${media.lessThan('large')`
     width: 24px;
     height: 24px;
+    fill: var(--bg-icon);
   `}
 `;
-

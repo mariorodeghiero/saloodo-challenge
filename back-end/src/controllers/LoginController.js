@@ -3,10 +3,10 @@ let mockUser = require("../mock/users");
 module.exports = {
   async store(req, res) {
 
-    const { email } = req.body;
+    const { email, password } = req.body;
     console.log(req.body)
 
-    let user = await mockUser.users.find(user => user.email === email);
+    let user = await mockUser.users.find(user => user.email === email && user.password === password)
 
     if (!user) {
       console.log(`User not found !!`);

@@ -8,7 +8,7 @@ const BikerCard = (props) => {
     waiting, assigned, picked_up, delivered,
   } = props.orderStatus;
   const { city, address, zip } = props.destination;
-  const {origin_name} = props.origin
+  const { name } = props.origin;
 
   const time = ['15 min', '30 min', '45 min', '1h', '1h 15min', '1h 30min'];
 
@@ -23,9 +23,8 @@ const BikerCard = (props) => {
     <S.Wrapper>
       <S.OrderSection>
         <S.BusinessIcon />
-        <S.Origin>{origin_name}</S.Origin>
+        <S.Origin>{name}</S.Origin>
         <S.Label>#{props.orderId}</S.Label>
-        <S.Label>{props.pickupEstimate}</S.Label>
       </S.OrderSection>
       <S.StatusSection>
         <ul>
@@ -33,6 +32,7 @@ const BikerCard = (props) => {
           <S.Status status={assigned}>Assigned</S.Status>
           <S.Status status={picked_up}>Pike Up</S.Status>
           <S.Status status={delivered}>Delivered</S.Status>
+          {picked_up && !delivered && <button onClick={() => props.confirmDelivered(props.orderId)}>Delivered shipment</button>}
         </ul>
       </S.StatusSection>
       <S.OriginSection>
@@ -49,29 +49,32 @@ const BikerCard = (props) => {
       </S.DestinationSection>
       <S.AssignedSection>
         <form onSubmit={(event) => handleSubmit(event)}>
-        <S.EstimateTimeLabel>
+          <S.EstimateTimeLabel>
           Estimated time:
-        </S.EstimateTimeLabel>
-            <S.Info>
-              {props.pickupEstimate}
-              <S.EditIcon
-                hide={props.pickupEstimate === null}
-                onClick={() => setEditTime(true)}
-              />
-            </S.Info>
-            {(props.pickupEstimate === null || editTime) && (
-              <select
-                value={timeDuration}
-                onChange={(event) => setTimeDuration(event.target.value)}
-              >
-                {time.map((item, index) => (
-                  <option key={`biker-select-${index}`} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            )}
-          {(props.pickupEstimate === null || editTime) && (
+          </S.EstimateTimeLabel>
+          <S.Info>
+            {props.pickupEstimate !== 'Time: waiting biker' && props.pickupEstimate}
+            {!delivered && props.pickupEstimate !== 'Time: waiting biker'
+               && (
+               <S.EditIcon
+                 hide={props.pickupEstimate === null}
+                 onClick={() => setEditTime(!editTime)}
+               />
+               )}
+          </S.Info>
+          {(props.pickupEstimate === null || editTime || props.pickupEstimate === 'Time: waiting biker') && (
+          <S.Select
+            value={timeDuration}
+            onChange={(event) => setTimeDuration(event.target.value)}
+          >
+            {time.map((item, index) => (
+              <option key={`biker-select-${index}`} value={item}>
+                {item}
+              </option>
+            ))}
+          </S.Select>
+          )}
+          {(props.pickupEstimate === null || editTime || props.pickupEstimate === 'Time: waiting biker') && (
             <S.BtnSubmit type="submit" value="Save" />
           )}
         </form>

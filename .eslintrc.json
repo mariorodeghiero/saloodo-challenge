@@ -18,7 +18,7 @@
     "import/prefer-default-export": "off",
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
     "react/prop-types": 0,
-    "react/jsx-one-expression-per-line": false,
-    "react/destructuring-assignment": false
+    "react/jsx-one-expression-per-line": 0,
+    "react/destructuring-assignment": 0
   }
 }

@@ -21,6 +21,7 @@ export const Shipments = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   ${media.lessThan('medium')`
     height: 90vh;
     margin-bottom: 200px;

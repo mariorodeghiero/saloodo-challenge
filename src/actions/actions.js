@@ -181,3 +181,40 @@ export const editTimer = (orderId, timer) => {
       .catch(() => dispatch(editTimerFailure()));
   };
 };
+
+/**
+ * confirmDelivered action
+ */
+export const confirmDeliveredRequest = () => {
+  return {
+    type: "CONFIRM_DELIVERED_REQUEST"
+  };
+};
+
+export const confirmDeliveredSuccess = (data, body) => {
+  return {
+    type: "CONFIRM_DELIVERED_SUCCESS",
+    payload: body,
+    data
+  };
+};
+
+export const confirmDeliveredFailure = data => {
+  return {
+    type: "CONFIRM_DELIVERED_FAILURE",
+    data
+  };
+};
+
+export const confirmDelivered = (orderId) => {
+  const body = {
+    order_id: orderId,
+  };
+  return dispatch => {
+    dispatch(confirmDeliveredRequest());
+    axios
+      .post("http://localhost:3000/delivered", body)
+      .then(({ data }) => dispatch(confirmDeliveredSuccess(data, body)))
+      .catch(() => dispatch(confirmDeliveredFailure()));
+  };
+};

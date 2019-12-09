@@ -93,5 +93,34 @@ export default (state = INITIAL_STATE, action) => {
       error: true
     };
   }
+  if (action.type === "CONFIRM_DELIVERED_REQUEST") {
+    return {
+      ...state,
+      loading: true,
+      success: false,
+      error: false
+    };
+  }
+  if (action.type === "CONFIRM_DELIVERED_SUCCESS") {
+    const { order_id } = action.payload;
+    let newData = state.data;
+    const objIndex = newData.findIndex(obj => obj.order_id == order_id);
+    newData[objIndex].order_status.delivered = true;
+    return {
+      ...state,
+      loading: false,
+      success: true,
+      error: false,
+      data: newData
+    };
+  }
+  if (action.type === "CONFIRM_DELIVERED_FAILURE") {
+    return {
+      ...state,
+      loading: false,
+      success: false,
+      error: true
+    };
+  }
   return state;
 };

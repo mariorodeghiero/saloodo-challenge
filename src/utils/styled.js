@@ -1,6 +1,6 @@
-import styled, { keyframes } from "styled-components";
-import reset from "styled-reset";
-import { createGlobalStyle } from "styled-components";
+import { keyframes, createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
+
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -11,6 +11,21 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     color: #292e33;
+  }
+
+  :root {
+    --yellow: #FECD1A;
+    --red: #D40131;
+    --white: #ffffff;
+    --grey: #d7dde8;
+    --status-inactive: #B8C3CC;
+    --status-active: #41B809;
+    --label: #95a1ac;
+    --bg-green: #41b809;
+    --text: #292e33;
+    --border: #f5f5f5;
+    --silver: #c3c3c3;
+    --bg-icon: #BCBFC8;
   }
 
   body, html {

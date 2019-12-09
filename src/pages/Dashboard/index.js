@@ -13,19 +13,16 @@ import {
   authenticateUserRequest,
   assignedBiker,
   editTimer,
+  confirmDelivered,
 } from '../../actions/actions';
 
 import * as S from './styled';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
-    const { loadBikers, adminShipments } = this.props;
-    console.log(this.props.shipments.data)
-    // if(adminShipments) {
+    const { loadBikers } = this.props;
       this.props.loadAdminShipments();
       loadBikers();
-      // console.log("test")
-    // }
   }
 
   handleAuthenticateUser(email, password) {
@@ -84,6 +81,7 @@ export class Dashboard extends React.Component {
                       pickupEstimate={item.pickup_estimate}
                       bikers={bikers}
                       editTimer={(orderId, timer) => this.props.editTimer(orderId, timer)}
+                      confirmDelivered={(orderId) => this.props.confirmDelivered(orderId)}
                     />
                   );
                 }
@@ -109,6 +107,7 @@ const mapDispatchToProps = (dispatch) => ({
   initializeUser: () => dispatch(authenticateUserRequest()),
   assignedBiker: (orderId, biker) => dispatch(assignedBiker(orderId, biker)),
   editTimer: (orderId, timer) => dispatch(editTimer(orderId, timer)),
+  confirmDelivered: (orderId) => dispatch(confirmDelivered(orderId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

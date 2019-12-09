@@ -5,10 +5,10 @@ const AdminCard = (props) => {
   const [assignedBiker, setAssignedBiker] = useState('unassigned');
   const [editAssigned, setEditAssigned] = useState(false);
   const {
- waiting, assigned, picked_up, delivered
-} = props.orderStatus;
+    waiting, assigned, picked_up, delivered,
+  } = props.orderStatus;
   const { zip, address } = props.destination;
-  const {name} = props.origin
+  const { name } = props.origin;
   const { bikers } = props;
 
   const handleSubmit = (event) => {
@@ -50,23 +50,23 @@ const AdminCard = (props) => {
           <S.AssignedLabel>
             Assigned:
           </S.AssignedLabel>
-            <S.Assigned>
-              {props.assigned ? props.assigned : 'Unassigned'}
-              <S.EditIcon onClick={() => setEditAssigned(!editAssigned)} />
-            </S.Assigned>
-            {editAssigned && (
-              <select
-                value={assignedBiker}
-                onChange={(event) => setAssignedBiker(event.target.value)}
-              >
-                <option value="unassigned">Unassigned</option>
-                {bikers.map((item, index) => (
-                  <option key={`biker-select-${index}`} value={item.name}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            )}
+          <S.Assigned>
+            {props.assigned ? props.assigned : 'Unassigned'}
+            <S.EditIcon onClick={() => setEditAssigned(!editAssigned)} />
+          </S.Assigned>
+          {editAssigned && (
+          <S.Select
+            value={assignedBiker}
+            onChange={(event) => setAssignedBiker(event.target.value)}
+          >
+            <option value="unassigned">Unassigned</option>
+            {bikers.map((item, index) => (
+              <option key={`biker-select-${index}`} value={item.name}>
+                {item.name}
+              </option>
+            ))}
+          </S.Select>
+          )}
           {editAssigned && <S.BtnSubmit type="submit" value="Save" />}
         </form>
       </S.AssignedSection>

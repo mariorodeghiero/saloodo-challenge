@@ -10,7 +10,7 @@ export const Avatar = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #c3c3c3;
+  background-color: var(--label);
   border-radius: 100%;
   text-align: center;
   align-content: center;
